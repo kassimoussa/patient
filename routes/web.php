@@ -29,6 +29,7 @@ Route::post('check', [UserController::class, 'check'])->name('check');
 
 Route::group(['middleware' => ['logged']], function () { 
     Route::get('index', [UserController::class, 'index']);
+    Route::get('/logout', [UserController::class, 'logout']);
     
     Route::get('create_patient', [PatientController::class, 'create']);
     Route::get('show_patient/{patient}', [PatientController::class, 'show']);
