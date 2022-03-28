@@ -1,0 +1,1 @@
+date('d/m/Y à H:m:i', strtotime($consul->date_consult)) 
