@@ -69,6 +69,11 @@
                                          title="Ajouter une consultation ">
                                          <i class="fas fa-file-medical"></i>
                                      </a>
+                                     <a href="{{ url('edit_patient', $patient) }}" class="btn btn-link"
+                                         data-bs-toggle="tooltip" data-bs-placement="left"
+                                         title="Modifier ">
+                                         <i class="fas fa-edit"></i>
+                                     </a>
                                      <form action="{{ url('delete', $patient) }}" method="post" class="d-inline">
                                          @csrf
                                          @method('delete')
@@ -95,9 +100,16 @@
          </div>
 
          <div id='consult' class="hidden">
-             <div class="card col mb-3">
-                 <h4 class="card-header text-center bg-dark text-white">Consultation</h4>
-                 <div class="card-body">
+             <div class="card col mb-3"> 
+                 <div class="card-header bg-dark  d-flex justify-content-between mb-2 mt-0">
+                    <h4 class="text-center text-white">Consultation</h4>
+                    <a href="#"  id="editbtn" class="btn btn-link"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Modifier">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+                 <div class="card-body"> 
                      <div class="form-group control-label mb-1">
                          <label class="control-label">Médecin <span class="text-danger">*</span></label>
                          <input type="text" class="form-control" name="medecin" id="medecin" readonly>
@@ -242,6 +254,7 @@
                              document.getElementById('diagnostiques').value = res.diagnostiques;
                              document.getElementById('traitements').value = res.traitements;
                              document.getElementById('resultats_paraclinique').value = res.resultats_paraclinique;
+                             document.getElementById("editbtn").href="edit_consultation/"+res.id;
 
                          } else {
 

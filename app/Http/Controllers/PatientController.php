@@ -77,9 +77,9 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Patient $patient)
     {
-        //
+        return view('edit_patient', compact('patient'));
     }
 
     /**
@@ -89,9 +89,30 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Patient $patient)
     {
-        //
+        $query = $patient->update($request->all());
+        if($query){
+            return back()->with('success', 'Changement effectué ');
+        }else{
+            return back()->with('fail', 'Echec ');
+        }
+    }
+
+    public function edit_consultation($id)
+    {
+        $consultation = Consultation::where('id', $id)->first();
+        return view('edit_consultation', compact('consultation'));
+    }
+
+    public function update_consultation(Request $request, Consultation $consultation)
+    {
+        $query = $consultation->update($request->all());
+        if($query){
+            return back()->with('success', 'Changement effectué ');
+        }else{
+            return back()->with('fail', 'Echec ');
+        }
     }
 
     /**
