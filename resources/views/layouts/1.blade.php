@@ -22,6 +22,7 @@ $user = User::where('id', session('id'))->first();
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> 
     <script src="{{ asset('js/app.js') }}"></script>
+    @livewireStyles
     {{-- <script src="{{ asset('js/chart.js') }}"></script>
     <script src="{{ asset('lib/main.js') }}"></script>
     <script src="{{ asset('lib/locales-all.js') }}"></script>
@@ -168,7 +169,7 @@ $user = User::where('id', session('id'))->first();
             dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
         }); */
     </script> --}}
-   {{--  @livewireScripts --}}
+    @livewireScripts
 </body>
 
 </html>
