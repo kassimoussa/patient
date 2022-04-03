@@ -15,12 +15,12 @@ $user = User::where('id', session('id'))->first();
 
     @livewireStyles
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script> 
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireStyles
     {{-- <script src="{{ asset('js/chart.js') }}"></script>
@@ -89,20 +89,22 @@ $user = User::where('id', session('id'))->first();
         <div class="container-fluid">
             {{-- <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" height="40px" width="70px"
                     alt=""></a> --}}
-            <a class="navbar-brand @if ($pageSlug == 'accueil') {{ 'activee' }} @endif" href="/index">Accueil</a>
+            <a class="navbar-brand @if ($pageSlug == 'accueil') {{ 'activee' }} @endif"
+                href="/index">Accueil</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">  
-                     
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
                 </ul>
                 <div class="d-flex">
                     <div class="nav-item dropdown dropstart">
 
-                        <h5 class="nav-link nav_link fw-bold   dropdown-toggle @if ($sup == 'pro') {{ 'activee' }} @endif " id="user"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $user->name }} </h5>
+                        <h5 class="nav-link nav_link fw-bold   dropdown-toggle @if ($sup == 'pro') {{ 'activee' }} @endif "
+                            id="user" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $user->name }}
+                        </h5>
 
                         <ul class="dropdown-menu dropdown-menu-dark bg-dark" aria-labelledby="user">
                             {{-- <li><a class="dropdown-item @if ($pageSlug == 'profile') {{ 'activee' }} @endif" href="/profile">Profile</a></li>
@@ -130,7 +132,7 @@ $user = User::where('id', session('id'))->first();
     @stack('modals')
 
     @stack('scripts')
-
+    @livewireScripts
     {{-- <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
@@ -169,7 +171,7 @@ $user = User::where('id', session('id'))->first();
             dropdownParent: $("#form-select-lg").parent(), // Required for dropdown styling
         }); */
     </script> --}}
-    @livewireScripts
+
 </body>
 
 </html>

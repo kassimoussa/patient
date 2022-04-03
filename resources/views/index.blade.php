@@ -4,23 +4,14 @@
  @extends('layouts.1', ['page' => 'Liste des patients', 'pageSlug' => 'list', 'sup' => ''])
  @section('content')
 
+ {{-- <div class="d-flex justify-content-between mb-3">
+    <h3 class="over-title mb-2">Liste des patients </h3>
+    <a href="create_patient" class="btn  btn-primary  fw-bold" >Ajouter</a>
+    <button type="button" name="add_document" class="btn btn-dark fw-bold" data-bs-toggle="modal"
+        data-bs-target="#addPatient">Ajouter</button>
+</div> --}}
      <div class="row">
-         <div class="d-flex justify-content-between mb-3">
-             <h3 class="over-title mb-2">Liste des patients </h3>
-             <a href="create_patient" class="btn  btn-primary  fw-bold">Ajouter</a>
-         </div>
-         @if ($message = Session::get('success'))
-             <div class="alert alert-success alert-dismissible fade show " role="alert">
-                 <p>{{ $message }}</p>
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>
-         @endif
-         @if ($message = Session::get('fail'))
-             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                 <p>{{ $message }}</p>
-                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>
-         @endif 
+         
          <livewire:patients /> 
          <div id='consult' class="hidden">
              <div class="card col mb-3"> 
@@ -65,44 +56,70 @@
 
 
      </div>
+    {{--  <div   class="modal fade" id="addPatient" tabindex="-1" aria-labelledby="newPatient"  aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header d-flex justify-content-between">
+                    <h3>Nouveau Patient </h3>
+                   
+                </div>
+                <div class="modal-body">
+                    <form wire:submit.prevent="storePatient" role="form" method="post" class="form" > 
+                        <div class="row mb-2">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt">Prénom </span>
+                                    <input type="text" class="form-control" wire:model="prenom" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt">Nom </span>
+                                    <input type="text" class="form-control" wire:model="nom" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt">Age</span>
+                                    <input type="number" class="form-control" wire:model="age" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt">Téléphone</span>
+                                    <input type="number" class="form-control" wire:model="telephone" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt">Situation fam.</span>
+                                    <select class="form-select " wire:model="situ_fami">
+                                        <option value="Marié">Marié</option>
+                                        <option value="Célibataire">Célibataire</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold txt ">Assuré</span>
+                                    <select class="form-select " wire:model="assure">
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group mb-3 ">
+                                    <span class="input-group-text  fw-bold  txt">Adresse</span>
+                                    <textarea wire:model="adresse" class="form-control" id="" rows="2" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
-     <style>
-        .pds {
-            width: 100%;
-        }
-
-        .pd_70 {
-            width: 70%;
-        }
-
-        .pd_60 {
-            width: 60%;
-        }
-
-        .pd_50 {
-            width: 50%;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .show {
-            display: block;
-        }
-
-        .cld_30 {
-            width: 30%;
-        }
-
-        .cld_10 {
-            width: 10%;
-        }
-
-        .cdw_40 {
-            width: 40%;
-        }
-
-    </style>
+                </div>
+            </div>
+        </div>
+    </div> --}}
      
  @endsection
